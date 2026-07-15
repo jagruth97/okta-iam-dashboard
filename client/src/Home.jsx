@@ -24,7 +24,7 @@ if(!authState) {
   return <div>Loading authentication state...</div>;
 }
 
-returnn (
+return (
     <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
         <h1>Welcome to the Okta IAM Dashboard</h1>
         {!authState.isAuthenticated ? (
