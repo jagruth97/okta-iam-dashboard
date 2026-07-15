@@ -1,0 +1,1 @@
+{"version":3,"file":"browser.js","names":["enableSharedStorage","exports"],"sources":["../../../../lib/oidc/options/browser.ts"],"sourcesContent":["export const enableSharedStorage = true;\n"],"mappings":";;;AAAO,MAAMA,mBAAmB,GAAAC,OAAA,CAAAD,mBAAA,GAAG,IAAI","ignoreList":[]}
