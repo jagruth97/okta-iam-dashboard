@@ -8,7 +8,8 @@ const AdminDashboard = () => {
 
   useEffect(() => {
     if (authState && authState.isAuthenticated) {
-      oktaAuth.getUser().then((info) => setUserInfo(info));
+      // oktaAuth.getUser().then((info) => setUserInfo(info));
+      setUserInfo(authState.idToken.claims);
     }
   }, [authState, oktaAuth]);
 

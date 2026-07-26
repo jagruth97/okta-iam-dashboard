@@ -12,9 +12,10 @@ function Home() {
       setUserInfo(null);
     } else {
         // User is logged in, get user info & fetch their claims from Okta token
-      oktaAuth.getUser().then((info) => {
-        setUserInfo(info);
-      });
+    //   oktaAuth.getUser().then((info) => {
+    //     setUserInfo(info);
+    //   });
+      setUserInfo(authState.idToken.claims);
     }
 }, [authState, oktaAuth]);
 
