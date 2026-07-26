@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useOktaAuth } from "@okta/okta-react";
 import { useEffect, useState } from "react";
 
@@ -18,7 +19,7 @@ function Home() {
 }, [authState, oktaAuth]);
 
 const login = async () => oktaAuth.signInWithRedirect();
-const logoout = async () => oktaAuth.signOut();
+const logout = async () => oktaAuth.signOut();
 
 if(!authState) {
   return <div>Loading authentication state...</div>;
@@ -35,11 +36,16 @@ return (
         ) : (
             <div>
                 <p>Welcome, <strong>{userInfo?.name || "User"}</strong>!</p>
-                <p>Here arethe claims returned by Okta in your ID Token:</p>
+                <p>Here are the claims returned by Okta in your ID Token:</p>
                 <pre style={{ background: "#f4f4f4", padding: '15px', borderRadius: '5px', overflowX: 'auto'}}>
                     {JSON.stringify(userInfo, null, 2)}
                 </pre>
-                <button onClick={logoout} style={{ padding: "10px 20px", fontSize: "16px", cursor: "pointer" }}>Logout</button>
+                <div style={{ marginTop: '20px' }}>
+                <Link to="/admin" style={{ padding: '10px', background: '#007bff', color: 'white', textDecoration: 'none', borderRadius: '4px', marginRight: '10px' }}>
+                Access Admin Dashboard
+                </Link>
+                <button onClick={logout} style={{ padding: "10px 20px", fontSize: "16px", cursor: "pointer" }}>Logout</button>
+                </div>
             </div>
         )}
     </div>

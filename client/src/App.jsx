@@ -2,6 +2,7 @@ import { useNavigate, Routes, Route } from 'react-router-dom';
 import { Security, LoginCallback } from '@okta/okta-react';
 import { OktaAuth, toRelativeUrl } from '@okta/okta-auth-js';
 import Home from './Home';
+import AdminDashboard from './AdminDashboard'; // <-- Import the new component
 
 const oktaAuth = new OktaAuth({
   issuer: import.meta.env.VITE_OKTA_ISSUER,
@@ -20,8 +21,8 @@ function App() {
   return (
     <Security oktaAuth={oktaAuth} restoreOriginalUri={restoreOriginalUri}>
       <Routes>
-        {/* Replace the placeholder div with the Home component */}
-        <Route path="/" element={<Home />} /> 
+        <Route path="/" element={<Home />} />
+        <Route path="/admin" element={<AdminDashboard />} /> {/* <-- Add the route */}
         <Route path="/login/callback" element={<LoginCallback />} />
       </Routes>
     </Security>
